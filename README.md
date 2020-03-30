@@ -1,7 +1,7 @@
 # TriggerHandlerPattern
 Abstracted Trigger Handler Pattern based on App, to use when there isn't a Trigger Framework to leverage.  Once in the App trigger handler class we can get further detailed into abstracting by Record Type.  
 
-This pattern is intended to allow as many different apps as possible to leverage it within a Salesforce org
+This pattern is intended to allow as many apps to leverage it as needed within their associated Salesforce org
 
 **The Flow**
   1. CaseTrigger context hit
