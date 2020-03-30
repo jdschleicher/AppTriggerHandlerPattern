@@ -96,7 +96,10 @@ The Flow
     app specific trigger handler classes will leverage
 
                       
-* THE BELOW IS IN PROGRESS/DRAFT * 
+
+
+
+**THE BELOW IS IN PROGRESS/DRAFT**
 Leverage Code Snippets
 Leveraging the Trigger Context Scenarios:
 #1 Adding a new Trigger Context 
