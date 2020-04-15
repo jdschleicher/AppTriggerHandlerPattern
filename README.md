@@ -4,7 +4,7 @@ Abstracted Trigger Handler Pattern based on App, to use with or without a Trigge
 This pattern is intended to allow as many Apps to leverage a Trigger Handler as needed within an associated Salesforce org  
 
 **Benefits**
-  1. Forces abstraction 
+  1.  Encourages abstraction per App
   1. "For-Loops" exist only on generic object trigger handler
 
 **The Flow**
