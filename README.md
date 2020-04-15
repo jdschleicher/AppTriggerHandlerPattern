@@ -1,12 +1,12 @@
 # TriggerHandlerPattern
-Abstracted Trigger Handler Pattern based on App, to use when there isn't a Trigger Framework to leverage.  Once in the App trigger handler class we can get further detailed into abstracting by Record Type.  
+Abstracted Trigger Handler Pattern based on App, to use with or without a Trigger Framework (such as https://github.com/kevinohara80/sfdc-trigger-framework)  to leverage.  Once in the trigger handler class for a specific app we can get further detailed into business domain logic and core functionality specific to that App.  
 
-This pattern is intended to allow as many apps to leverage it as needed within their associated Salesforce org
+This pattern is intended to allow as many Apps to leverage a Trigger Handler as needed within an associated Salesforce org
 
 **The Flow**
   1. CaseTrigger context hit
   1. On initialization of CaseTriggerHandler, a Record Type Map (<Map<Id, String>) is added to a class property in the CaseTriggerHandler **availableBeforeUpdateRecordTypeIdsByCasesMap**.  
-     These are the record types, determined by app trigger handler classes, that will run for the calling trigger context
+     These are the record types, determined by one-to-many app trigger handler classes, that will run as part of the constructor initialization of the CaseTriggerHandler class
   1. A conditional captures specific trigger context and calls the associated CaseTriggerHandler trigger context method:
   
               trigger CaseTrigger on Case (before update, after update) {
