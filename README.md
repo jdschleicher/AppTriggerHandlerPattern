@@ -36,14 +36,14 @@ This pattern is intended to allow as many Apps to leverage a Trigger Handler as 
                     }
                 }
                 
-  1. the **buildBeforeUpdateRecordTypeDeveloperNameMap()* method populates the class map property (Map<Id, List<Case>>): **beforeUpdateRecordTypeIdByCasesMap**
+  1. the *buildBeforeUpdateRecordTypeDeveloperNameMap()* method populates the class map property (Map<Id, List<Case>>): **beforeUpdateRecordTypeIdByCasesMap**
               
                   private static void buildBeforeUpdateRecordTypeDeveloperNameMap(List<Case> beforeUpdateCases) {
                       // This map will capture all Record Type Developer Names by Case and will be searchable to determine whether or not
                       // to run logic for Cases if they do not have populated RecordType map references
 
                       for (Case beforeUpdateCase : beforeUpdateCases) {
-                          if (**availableBeforeUpdateRecordTypeIdsByCasesMap**.keySet().contains(beforeUpdateCase.RecordTypeId)) {
+                          if (availableBeforeUpdateRecordTypeIdsByCasesMap.keySet().contains(beforeUpdateCase.RecordTypeId)) {
                               if (beforeUpdateRecordTypeIdByCasesMap.containsKey(beforeUpdateCase.RecordTypeId)) {
                                   beforeUpdateRecordTypeIdByCasesMap.get(beforeUpdateCase.RecordTypeId).add(beforeUpdateCase);
                               } else {
