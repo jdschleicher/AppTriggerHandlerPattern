@@ -1,4 +1,4 @@
-# TriggerHandlerPattern
+# App Trigger Handler Pattern
 Abstracted Trigger Handler Pattern based on App, to use with or without a Trigger Framework (such as https://github.com/kevinohara80/sfdc-trigger-framework)  to leverage.  Once in the trigger handler class for a specific app we can get further detailed into business domain logic and core functionality specific to that App.  
 
 This pattern is intended to allow as many Apps to leverage a Trigger Handler as needed within an associated Salesforce org
