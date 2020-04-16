@@ -5,7 +5,7 @@ This pattern is intended to allow as many Apps to leverage a Trigger Handler as 
 
 **Benefits**
   1.  Encourages abstraction per App
-  1. "For-Loops" exist only on generic object trigger handler
+  1. "For-Loops" exist only on object trigger handler such as "CaseTriggerHandler" or "AccountTriggerHandler"
 
 **The Flow**
   1. CaseTrigger context hit
