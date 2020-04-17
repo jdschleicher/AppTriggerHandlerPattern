@@ -57,7 +57,9 @@ public with sharing class CaseTriggerHandler {
 
             for (Case beforeUpdateCase : beforeUpdateCases) {
                 // Insert App TriggerHandler methods for specic Trigger Context
-                SpecicAppNameCaseTriggerHandler.applyBeforeUpdateStagingLogic(beforeUpdateCase);
+                if (SpecicAppNameCaseTriggerHandler.getBeforeUpdateSpecicAppNameRecordTypeDeveloperNamesMap().keySet().contains(afterUpdateCase.RecordTypeId)) {
+                    SpecicAppNameCaseTriggerHandler.applyBeforeUpdateStagingLogic(beforeUpdateCase);
+                }
             }
 
             postStagingDataRetrievalBeforeUpdate();
@@ -73,7 +75,9 @@ public with sharing class CaseTriggerHandler {
     // oldCasesByIds is for future methods and record types that will leverage logic around old Cases
     private static void applyBeforeUpdateLogic(Map<Id, Case> oldCasesByIds, List<Case> beforeUpdateCases) {
         for (Case beforeUpdateCase : beforeUpdateCases) {
-            SpecicAppNameCaseTriggerHandler.applyBeforeUpdateLogic(beforeUpdateCase);
+            if (SpecicAppNameCaseTriggerHandler.getBeforeUpdateSpecicAppNameRecordTypeDeveloperNamesMap().keySet().contains(afterUpdateCase.RecordTypeId)) {
+                SpecicAppNameCaseTriggerHandler.applyBeforeUpdateLogic(beforeUpdateCase);
+            }
         }
     }
 
@@ -118,7 +122,9 @@ public with sharing class CaseTriggerHandler {
     private static void applyAfterUpdateLogic(List<Case> afterUpdateCases, Map<Id, Case> oldCasesByIds) {
 
         for (Case afterUpdateCase :  afterUpdateCases) {
-            SpecicAppNameCaseTriggerHandler.applyAfterUpdateLogic(oldCasesByIds, afterUpdateCase);
+            if (SpecicAppNameCaseTriggerHandler.getAfterUpdateSpecicAppNameRecordTypeDeveloperNamesMap().keySet().contains(afterUpdateCase.RecordTypeId)) {
+                SpecicAppNameCaseTriggerHandler.applyAfterUpdateLogic(oldCasesByIds, afterUpdateCase);
+            }
         }
 
     }
