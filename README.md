@@ -10,7 +10,24 @@ This pattern is intended to allow as many Apps to leverage a Trigger Handler as 
 **The Flow**
   1. CaseTrigger context hit
   1. On initialization of CaseTriggerHandler, a Record Type Map (<Map<Id, String>) is added to a class property in the CaseTriggerHandler **availableBeforeUpdateRecordTypeIdsByCasesMap**.  
-     These are the record types, determined by one-to-many app trigger handler classes, that will run as part of the constructor initialization of the CaseTriggerHandler class
+     These are the record types, determined by one-to-many app trigger handler classes, that will run as part of the constructor initialization of the CaseTriggerHandler class below
+  
+    public static Map<Id, List<Case>> beforeUpdateRecordTypeIdByCasesMap = new Map<Id, List<Case>>()
+
+    public CaseTriggerHandler() {
+        getBeforeUpdateRecordTypeDeveloperNameMap(); // get record types that will be used for Before Update logic
+        getAfterUpdateRecordTypeDeveloperNameMap();// get record types that will be used for After Update logic
+    }
+
+    // for every Case that should run into logic as part of the Before Update context,
+    // add it's associated Record Type Developer Name to the below map
+    public static Map<Id, String> availableBeforeUpdateRecordTypeIdsByCasesMap= new Map<Id, String>();
+    private static void getBeforeUpdateRecordTypeDeveloperNameMap() {
+        availableBeforeUpdateRecordTypeIdsByCasesMap.putAll(
+            SpecicAppNameCaseTriggerHandler.getBeforeUpdateSpecicAppNameRecordTypeDeveloperNamesMap()
+        );
+    }
+     
   1. A conditional captures specific trigger context and calls the associated CaseTriggerHandler trigger context method:
   
               trigger CaseTrigger on Case (before update, after update) {
