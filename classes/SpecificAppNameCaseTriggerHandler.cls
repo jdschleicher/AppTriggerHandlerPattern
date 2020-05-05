@@ -1,5 +1,5 @@
 
-public with sharing class CaseTriggerHandler {
+public with sharing class SpecificAppNameCaseTriggerHandler {
 
     public static Map<Id, String> getBeforeUpdateRecordTypeDeveloperNamesMap() {
         Map<Id, String> availableBeforeUpdateRecordTypeIdsByCasesMap= new Map<Id, String>();
